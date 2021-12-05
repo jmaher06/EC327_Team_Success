@@ -1,0 +1,2 @@
+need to move chess_functions back into board object because we need 
+to access the arrays of pieces and pass the board as an argument to return the piece
