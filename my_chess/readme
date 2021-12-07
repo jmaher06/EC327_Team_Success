@@ -1,6 +1,6 @@
 Only Necessary files to run the game are Board.h, Board.cpp Piece.h, Piece.cpp, makefile
 Currently doing testing in testing.cpp
 
-To test commands on testing.cpp, type make which creates an executable called game
+To test commands on testing.cpp, type make which creates an executable called test
 
 Couldn't get IsPieceBetween member of board class to work, so currently all pieces can jump over eachother.
