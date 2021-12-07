@@ -16,6 +16,10 @@ bool has_moved;
 bool is_white;
 char piece_symbol;
 int x_loc,y_loc;
+bool en_passantable;
+
+//Function to display information
+void DisplayInfo();
 
 //
 
