@@ -56,8 +56,8 @@ int main()
             cout << "Game Instructions & Rules: " << endl;
             cout << "First pair of x,y(letter number) coordiantes are which piece you want to move" << endl;
             cout << "Second pair of x,y(letter number) coordinates are where you want to move the piece" << endl;
-            cout << "Upper case is for whites, lower case is for blacks" << endl;
-            cout << "Whites (Upper case) starts the game! " << endl;
+            cout << "Upper case is for " << player1 <<", lower case is for " << player2 << endl;
+            cout << player1 <<" (Upper case) starts the game! " << endl;
             cout << "If you want to quit game while playing, type (q 1) when coordinates asked" << endl;
             cout << "   " << endl;
             cout << "Ready to start? (y/n) ";
@@ -78,32 +78,48 @@ int main()
                     {
                         t2.stop();
                         t2secsremaining = gameclock * 60 - t2.getTime() / 10;
-                        if (t2secsremaining > 100000000000)
-                            cout << "Time’s up, Player 2 !" << endl; //end the game here if we are doing that.
+                        if (t2secsremaining > 100000000000){
+                            cout << "Time’s up, " << player2 << "!" << endl; //end the game here if we are doing that.
+                            cout << player1 << " (upper case) wins!!!" << endl;
+                            exit(0);
+                        }
                         t2secs = t2secsremaining % 60;
                         t2mins = t2secsremaining / 60;
-                        cout << "Player 2 has " << t2mins << " minutes and " << t2secs << " seconds remaining." << endl;
+                        cout << player2 << " has " << t2mins << " minutes and " << t2secs << " seconds remaining." << endl;
                         t1secsremaining = gameclock * 60 - t1.getTime() / 10;
                         t1secs = t1secsremaining % 60;
                         t1mins = t1secsremaining / 60;
-                        cout << "Player 1 has " << t1mins << " minutes and " << t1secs << " seconds remaining." << endl;
+                        cout << player1 << " has " << t1mins << " minutes and " << t1secs << " seconds remaining." << endl;
                         t1.start();
                     }
                     else
                     {
                         t1.stop();
                         t1secsremaining = gameclock * 60 - t1.getTime() / 10;
-                        if (t1secsremaining > 100000000000)
-                            cout << "Time’s up, Player 1 !" << endl; //end the game here if we are doing that.
+                        if (t1secsremaining > 100000000000){
+                            cout << "Time’s up, " << player1 << "!" << endl; //end the game here if we are doing that.
+                            cout << player2 << " (lower case) wins!!!" << endl;
+                            exit(0);
+                        }
                         t1secs = t1secsremaining % 60;
                         t1mins = t1secsremaining / 60;
-                        cout << "Player 1 has " << t1mins << " minutes and " << t1secs << " seconds remaining." << endl;
+                        cout << player1 << " has " << t1mins << " minutes and " << t1secs << " seconds remaining." << endl;
                         t2secsremaining = gameclock * 60 - t2.getTime() / 10;
                         t2secs = t2secsremaining % 60;
                         t2mins = t2secsremaining / 60;
-                        cout << "Player 2 has " << t2mins << " minutes and " << t2secs << " seconds remaining." << endl;
+                        cout << player2 << " has " << t2mins << " minutes and " << t2secs << " seconds remaining." << endl;
                         t2.start();
                     }
+                    cout << "  " << endl;
+                    if (whitesTurn == true)
+                    {
+                        cout << player1 << " is playing." << endl;
+                    }
+                    else if (whitesTurn == false)
+                    {
+                        cout << player2 << " is playing." << endl;
+                    }
+
 
                     cout << "Enter piece coordinates (letter number): ";
                     cin >> pieceInputX; //char value
@@ -170,6 +186,7 @@ int main()
 
                     default:
                         inputMoves = false;
+                        cout << "  " << endl;
                         cout << "Invalid Entry" << endl;
                         break;
                     }
@@ -215,6 +232,7 @@ int main()
 
                     default:
                         inputMoves = false;
+                        cout << "  " << endl;
                         cout << "Invalid Entry" << endl;
                         break;
                     }
@@ -222,6 +240,7 @@ int main()
                     if (board.GetPieceAt(pieceInputNum, pieceInputY)->is_white != whitesTurn)
                     {
                         inputMoves = false;
+                        cout << "  " << endl;
                         cout << "Invalid Entry" << endl;
                     }
 
