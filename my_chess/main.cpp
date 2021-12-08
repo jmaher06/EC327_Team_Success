@@ -33,6 +33,7 @@ int main()
     timer t1;
     timer t2;
     unsigned long t1secsremaining, t1mins, t1secs, t2secsremaining, t2mins, t2secs;
+    bool valid2 = true;
 
 
     do
@@ -73,6 +74,7 @@ int main()
 
                 do // this loop is collecting validating input moves of pieces
                 {
+                    inputMoves = true;
 
                     if (whitesTurn == true)
                     {
@@ -119,7 +121,7 @@ int main()
                     {
                         cout << player2 << " is playing." << endl;
                     }
-
+                    cout << "  " << endl;
 
                     cout << "Enter piece coordinates (letter number): ";
                     cin >> pieceInputX; //char value
@@ -128,6 +130,7 @@ int main()
                     cout << "Enter where you want to move (letter number): ";
                     cin >> pieceMoveX; //char value
                     cin >> pieceMoveY; //int value
+                    valid2 = true;
 
                     if (pieceInputY <= 8 && pieceInputY >= 0)
                     {
@@ -138,12 +141,16 @@ int main()
                         else
                         {
                             inputMoves = false;
+                            valid2 = false;
                         }
                     }
                     else
                     {
                         inputMoves = false;
+                        valid2 = false;
                     }
+
+
 
                     switch (pieceInputX)
                     {
@@ -181,13 +188,15 @@ int main()
                         break;
                     case 'q':
                     case 'Q':
+                        valid2 = false;
                         exit(0);
                         break;
 
                     default:
                         inputMoves = false;
-                        cout << "  " << endl;
-                        cout << "Invalid Entry" << endl;
+                        valid2 = false;
+                        //cout << "  " << endl;
+                        //cout << "Invalid Entry" << endl;
                         break;
                     }
 
@@ -227,22 +236,39 @@ int main()
                         break;
                     case 'q':
                     case 'Q':
+                        valid2 = false;
                         exit(0);
                         break;
 
                     default:
                         inputMoves = false;
-                        cout << "  " << endl;
-                        cout << "Invalid Entry" << endl;
+                        valid2 = false;
+                        //cout << "  " << endl;
+                        //cout << "Invalid Entry" << endl;
                         break;
                     }
 
-                    if (board.GetPieceAt(pieceInputNum, pieceInputY)->is_white != whitesTurn)
+                    if (valid2 == true)
+                    {
+                        if (board.GetPieceAt(pieceInputNum, pieceInputY)->is_white != whitesTurn)
+                        {
+                            inputMoves = false;
+                            //cout << "  " << endl;
+                            //cout << "Invalid Entry" << endl;
+                        }
+                    }
+                    else
                     {
                         inputMoves = false;
+                    }
+
+                    if (inputMoves == false)
+                    {
                         cout << "  " << endl;
                         cout << "Invalid Entry" << endl;
+                        cout << "  " << endl;
                     }
+                    
 
                 } while (inputMoves == false);
 
@@ -262,6 +288,9 @@ int main()
                     {
                         whitesTurn = true;
                     }
+                }
+                else {
+                    cout << "  " << endl;
                 }
 
                 board.Display_Board();
