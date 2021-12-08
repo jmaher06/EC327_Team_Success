@@ -117,24 +117,11 @@ bool Board::MovePiece(int x_current,int y_current, int x_dest, int y_dest)
                     }
                 }
             }
-            /*
-            for(int i=0;i<16;i++)
-            {
-                if(fabs((this->white_pieces[i]->x_loc)-x_dest)<2 && fabs((this->white_pieces[i]->y_loc)-y_dest)<2)
-                {
-                    this->white_pieces[i]->x_loc=999;
-                    this->white_pieces[i]->y_loc=999;
-                }
-                if(fabs((this->black_pieces[i]->x_loc)-x_dest)<2 && fabs((this->black_pieces[i]->y_loc)-y_dest)<2)
-                {
-                    this->white_pieces[i]->x_loc=999;
-                    this->white_pieces[i]->y_loc=999;
-                }
-            }
-            */
-
+            piece_holder = this->GetPieceAt(x_dest,y_dest);
+            piece_holder->x_loc = 999;
+            piece_holder->y_loc = 999;
             cout << "kaboom" << endl;
-        return true;
+            return true;
         }
         //If not capturing a piece, update the piece's location
         else
@@ -149,7 +136,6 @@ bool Board::MovePiece(int x_current,int y_current, int x_dest, int y_dest)
     else
     //Return false if piece move can't be made
     {
-        cout << "Illegal Move" << endl;
         return false;
     }
 }
@@ -366,7 +352,10 @@ bool Board::Check_Move_Legal(Piece* piece, int x_dest, int y_dest)
                 {
                     possible_pawn_move = true;
                 }
+                else
+                {
                 possible_pawn_move = false;
+                }
             }
 
             //Check if it is a possible pawn move
