@@ -40,3 +40,6 @@ Get_Piece_At(int x, int y)->Is_White to check if they are allowed to move the pi
 for another move. Also, if the Move_Peice method returns false, main should ask for another move since the 
 move was not allowed. At the end of each turn call King_Exists() to check if the game should be over and
 Promote_Pawns() to promote any pawns.
+
+NOTE: All the codes were written from scratch. The files in SRC folder were used for inspiration and understanding
+what kind of classs we can need. We still uploaded the codes we used as a inspiration and our initial understanding.
