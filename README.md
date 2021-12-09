@@ -3,7 +3,7 @@
 Only Necessary files to run the game are Board.h, Board.cpp Piece.h, Piece.cpp, makefile
 Currently doing testing in testing.cpp
 
-Our code is in my_chess folder.
+Our code is in my_chess folder; the src folder contains code we got from prior sources to use as a starting point for our project.
 
 To test commands on testing.cpp, type make which creates an executable called test
 
