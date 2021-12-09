@@ -54,13 +54,18 @@ int main()
             cin >> gameclock;
 
             cout << "   " << endl;
+            cout << "Welcome to Atomic Chess!!!" << endl;
+            cout << "In atomic chess goal is to kill opponents king" << endl;
+            cout << "When you capture an opponents piece, all the pieces are captured except pawns." << endl;
+            cout << "Moves of pieces are idential to traditional chess." << endl;
+            cout << "-----------------------------------------" << endl;
             cout << "Game Instructions & Rules: " << endl;
             cout << "First pair of x,y(letter number) coordiantes are which piece you want to move" << endl;
             cout << "Second pair of x,y(letter number) coordinates are where you want to move the piece" << endl;
             cout << "Upper case is for " << player1 <<", lower case is for " << player2 << endl;
             cout << player1 <<" (Upper case) starts the game! " << endl;
             cout << "If you want to quit game while playing, type (q 1) when coordinates asked" << endl;
-            cout << "   " << endl;
+            cout << "-----------------------------------------" << endl;
             cout << "Ready to start? (y/n) ";
             cin >> startGame;
             cout << "  " << endl;
