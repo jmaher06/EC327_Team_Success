@@ -56,7 +56,7 @@ int main()
             cout << "   " << endl;
             cout << "Welcome to Atomic Chess!!!" << endl;
             cout << "In atomic chess goal is to kill opponents king" << endl;
-            cout << "When you capture an opponents piece, all the pieces are captured except pawns." << endl;
+            cout << "When you capture an opponents piece, all the adjacent pieces are captured except pawns." << endl;
             cout << "Moves of pieces are idential to traditional chess." << endl;
             cout << "-----------------------------------------" << endl;
             cout << "Game Instructions & Rules: " << endl;
@@ -298,8 +298,14 @@ int main()
                     cout << "  " << endl;
                 }
 
+                board.Promote_Pawns();
+
                 board.Display_Board();
                 cout << "    " << endl;
+
+
+
+
 
                 switch (board.King_Exists())
                 {
